@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOXmedia | Your Business Is Better Than The Way It Currently Looks Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://fast.wistia.com/player.js" async></script>
+  <script src="https://fast.wistia.com/embed/4mrrn36pnr.js" async type="module"></script>
+  <style>wistia-player[media-id='4mrrn36pnr']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/4mrrn36pnr/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+  <style>
+
+  /* ============================================================
+     DESIGN TOKENS
+  ============================================================ */
+  :root {
+    --coral:   #FF5B47;
+    --blue:    #2B90FF;
+    --green:   #22CC7A;
+    --purple:  #7B4EA8;
+    --brand:   #FFC621;
+    --bg:      #FFFBEA;
+    --card:    #FFFFFF;
+    --card2:   #FFF8DC;
+    --text:    #1A1A2E;
+    --text2:   #4A4A6A;
+    --text3:   #7A7A9A;
+    --bdr:     rgba(26,26,46,.13);
+    --shadow:  0 4px 24px rgba(26,26,46,.1);
+    --shadow-lg: 0 12px 48px rgba(26,26,46,.14);
+    --r:   16px;
+    --rmd: 12px;
+    --rlg: 24px;
+    --rxl: 36px;
+    --tr:  .25s ease;
+    --hand: 'Caveat', cursive;
+    --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body.dark {
+    --bg:    #0C0C1E;
+    --card:  #171728;
+    --card2: #1E1E32;
+    --text:  #F2F0EA;
+    --text2: rgba(242,240,234,.68);
+    --text3: rgba(242,240,234,.42);
+    --bdr:   rgba(255,255,255,.1);
+    --shadow:    0 4px 24px rgba(0,0,0,.4);
+    --shadow-lg: 0 12px 48px rgba(0,0,0,.55);
+  }
+
+  /* ============================================================
+     RESET
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--body);
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    transition: background var(--tr), color var(--tr);
+  }
+  :focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+    border-radius: var(--rmd);
+  }
+
+  /* ============================================================
+     NAV
+  ============================================================ */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(255,251,234,.92);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1.5px solid var(--bdr);
+    padding: 0 32px; height: 64px;
+    display: flex; align-items: center; gap: 14px;
+    transition: background var(--tr), border-color var(--tr);
+  }
+  body.dark nav { background: rgba(12,12,30,.92); }
+
+  .logo {
+    font-size: 18px; font-weight: 900; letter-spacing: -.04em;
+    color: var(--text); text-decoration: none; margin-right: auto;
+    display: flex; align-items: center; line-height: 0;
+    transition: color var(--tr);
+  }
+  .logo b {
+    color: var(--bg); background: var(--text);
+    padding: 2px 8px; border-radius: 8px;
+    transition: background var(--tr), color var(--tr);
+  }
+  /* If using image logo, swap the <a class="logo"> inner content */
+  .logo img { height: 36px; width: auto; display: block; }
+
+  .nav-tel {
+    font-size: 13px; font-weight: 600;
+    color: var(--text2); text-decoration: none;
+    white-space: nowrap; transition: color var(--tr);
+  }
+  .nav-tel:hover { color: var(--coral); }
+
+  .theme-btn {
+    width: 40px; height: 40px; border-radius: var(--r);
+    border: 1.5px solid var(--bdr); background: var(--card);
+    color: var(--text); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; transition: background var(--tr), border-color var(--tr);
+    flex-shrink: 0;
+  }
+  .theme-btn:hover { border-color: var(--blue); }
+
+  .nav-cta {
+    font-size: 13px; font-weight: 700;
+    background: var(--text); color: var(--bg);
+    padding: 9px 22px; border-radius: var(--r);
+    text-decoration: none; white-space: nowrap;
+    transition: background var(--tr), color var(--tr), transform .15s;
+  }
+  .nav-cta:hover { background: var(--coral); color: #fff; transform: scale(1.04); }
+
+  /* ============================================================
+     FAB
+  ============================================================ */
+  .fab {
+    position: fixed; bottom: 28px; right: 28px; z-index: 900;
+    display: flex; align-items: center; gap: 9px;
+    background: #25D366; color: #fff;
+    padding: 14px 20px; border-radius: var(--r);
+    text-decoration: none; font-size: 14px; font-weight: 700;
+    box-shadow: 0 6px 28px rgba(37,211,102,.38);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .fab:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 10px 40px rgba(37,211,102,.55); }
+  .fab svg { width: 18px; height: 18px; }
+
+  /* ============================================================
+     CENTERED COLUMN
+  ============================================================ */
+  .sec { padding: 96px 24px; }
+  .wrap { max-width: 1060px; margin: 0 auto; }
+  .wrap-sm { max-width: 720px; margin: 0 auto; }
+
+  /* ============================================================
+     TYPE
+  ============================================================ */
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase;
+    background: var(--text); color: var(--bg);
+    padding: 5px 13px; border-radius: var(--rmd); margin-bottom: 18px;
+    transition: background var(--tr), color var(--tr);
+  }
+  .sh {
+    font-size: clamp(28px,4.5vw,54px); font-weight: 800;
+    letter-spacing: -.04em; line-height: 1.06;
+    color: var(--text); margin-bottom: 16px;
+    transition: color var(--tr);
+  }
+  .sd {
+    font-size: 17px; color: var(--text2); line-height: 1.68;
+    max-width: 600px; transition: color var(--tr);
+  }
+  .tc { text-align: center; } .tc .sd { margin: 0 auto; }
+
+  /* Handwriting */
+  .hw { font-family: var(--hand); font-weight: 600; color: var(--coral); }
+  .hw-sm { font-size: 27px; }
+  .hw-md { font-size: 33px; }
+  .hw-lg { font-size: 42px; }
+  .hw-xl { font-size: 54px; }
+  body.dark .hw { color: var(--brand); }
+
+  /* Squiggly underline */
+  .squig-wrap { display: inline; position: relative; white-space: nowrap; }
+  .squig-wrap svg.sq {
+    position: absolute; bottom: -8px; left: 0;
+    width: 100%; height: 12px; overflow: visible; pointer-events: none;
+  }
+  .sq-path {
+    stroke-dasharray: 400; stroke-dashoffset: 400;
+    transition: stroke-dashoffset 1.4s cubic-bezier(.16,1,.3,1);
+  }
+  .sq-path.drawn { stroke-dashoffset: 0; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--body); font-size: 15px; font-weight: 700;
+    padding: 14px 28px; border-radius: var(--r);
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background .2s, color .2s, transform .15s, box-shadow .2s;
+  }
+  .btn-dark   { background: var(--text); color: var(--bg); }
+  .btn-dark:hover   { background: var(--coral); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,91,71,.35); }
+  .btn-coral  { background: var(--coral); color: #fff; }
+  .btn-coral:hover  { background: #e84833; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,91,71,.45); }
+  .btn-blue   { background: var(--blue);  color: #fff; }
+  .btn-blue:hover   { background: #1a7de8; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(43,144,255,.4); }
+  .btn-brand  { background: var(--brand); color: var(--text); }
+  .btn-brand:hover  { background: #e6b000; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,198,33,.45); }
+  .btn-outline { background: transparent; color: var(--text); border: 2px solid var(--bdr); }
+  .btn-outline:hover { border-color: var(--text); }
+  .btn-wa     { background: #25D366; color: #fff; }
+  .btn-wa:hover     { background: #20b358; transform: translateY(-2px); }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+  /* Card */
+  .card {
+    background: var(--card); border-radius: var(--rlg);
+    border: 1.5px solid var(--bdr); padding: 36px 32px;
+    box-shadow: var(--shadow);
+    transition: background var(--tr), border-color var(--tr), box-shadow var(--tr), transform .3s;
+  }
+  .card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+
+  /* Scroll reveal */
+  [data-r] { opacity: 0; transition: opacity .85s ease, transform .85s cubic-bezier(.16,1,.3,1); }
+  [data-r=up]    { transform: translateY(36px); }
+  [data-r=left]  { transform: translateX(-44px); }
+  [data-r=right] { transform: translateX(44px); }
+  [data-r=scale] { transform: scale(.94); }
+  [data-r].on { opacity: 1 !important; transform: none !important; }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  #hero { 
+    padding: 100px 24px 64px; 
+    text-align: center; 
+    position: relative;
+  }
+  #hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(255,202,33,0.4), rgba(0,0,0,0.6), rgba(255,202,33,0.3), rgba(0,0,0,0.7), rgba(255,202,33,0.2));
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    opacity: var(--hero-bg-opacity, 1);
+    pointer-events: none;
+    z-index: -1;
+  }
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--brand); color: var(--text);
+    font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    padding: 6px 16px; border-radius: var(--r); margin-bottom: 28px;
+  }
+  .hero-h1 {
+    font-size: clamp(40px,6.5vw,80px);
+    font-weight: 900; letter-spacing: -.05em; line-height: 1.04;
+    color: #fff; margin-bottom: 24px; transition: color var(--tr);
+  }
+  .hero-sub {
+    font-size: clamp(17px,2.2vw,21px); color: rgba(255,255,255,0.9); line-height: 1.65;
+    max-width: 580px; margin: 0 auto 36px; transition: color var(--tr);
+  }
+  .hero-hand {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; margin-bottom: 36px;
+  }
+  .hero-video {
+    margin: 52px auto 0; max-width: 900px;
+    border-radius: var(--rxl); overflow: hidden;
+    box-shadow: 0 24px 80px rgba(26,26,46,.18);
+    aspect-ratio: 16/9; background: var(--text);
+    transition: box-shadow var(--tr);
+  }
+  body.dark .hero-video { box-shadow: 0 24px 80px rgba(0,0,0,.6); }
+  .hero-video wistia-player { width: 100%; height: 100%; border: none; display: block; }
+  .video-caption {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; margin-top: 16px;
+  }
+
+  /* ============================================================
+     QUICK FORM (under hero)
+  ============================================================ */
+  #quick-form { padding: 0 24px 96px; }
+  .qf-card {
+    background: var(--card); border: 2px solid var(--bdr);
+    border-radius: var(--rxl); padding: 48px 52px;
+    box-shadow: var(--shadow-lg);
+    max-width: 1060px; margin: 0 auto;
+    transition: background var(--tr), border-color var(--tr);
+  }
+  .qf-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px; margin-bottom: 36px;
+  }
+  .qf-header h3 {
+    font-size: clamp(22px,3vw,32px); font-weight: 800;
+    letter-spacing: -.03em; color: var(--text); transition: color var(--tr);
+  }
+  .qf-fields {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-bottom: 16px;
+  }
+  .qf-fields textarea { grid-column: 1 / -1; resize: vertical; min-height: 90px; }
+  .field {
+    background: var(--bg); border: 1.5px solid var(--bdr);
+    border-radius: var(--r); padding: 12px 16px;
+    font-family: var(--body); font-size: 15px; font-weight: 500;
+    color: var(--text); width: 100%; outline: none;
+    transition: border-color .2s, background var(--tr), color var(--tr);
+    -webkit-appearance: none; appearance: none;
+  }
+  .field::placeholder { color: var(--text3); }
+  .field:focus { border-color: var(--blue); }
+  .qf-footer { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 4px; }
+
+  /* ============================================================
+     TRUST
+  ============================================================ */
+  #trust {
+    padding: 20px 24px;
+    border-top: 1.5px solid var(--bdr); border-bottom: 1.5px solid var(--bdr);
+  }
+  .trust-row {
+    max-width: 1060px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px 28px; flex-wrap: wrap;
+  }
+  .trust-lbl { font-size: 11px; font-weight: 700; color: var(--text3); letter-spacing: .1em; text-transform: uppercase; }
+  .trust-sep  { width: 4px; height: 4px; border-radius: 50%; background: var(--bdr); }
+  .trust-name { font-size: 14px; font-weight: 700; color: var(--text2); }
+
+  /* ============================================================
+     STATS
+  ============================================================ */
+  #stats { padding: 0; border-bottom: 1.5px solid var(--bdr); }
+  .stats-g {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    max-width: 1060px; margin: 0 auto;
+  }
+  .stat {
+    padding: 64px 24px; text-align: center;
+    border-right: 1.5px solid var(--bdr); position: relative;
+  }
+  .stat:last-child { border-right: 0; }
+  .stat-n {
+    font-size: clamp(44px,5.5vw,68px); font-weight: 900;
+    letter-spacing: -.05em; line-height: 1; color: var(--text);
+    transition: color var(--tr);
+  }
+  .stat-accent { color: var(--coral); }
+  .stat-l { font-size: 13px; color: var(--text2); margin-top: 8px; transition: color var(--tr); }
+  .stat-hand { position: absolute; top: 14px; right: 12px; transform: rotate(3deg); }
+
+  /* ============================================================
+     PROBLEM
+  ============================================================ */
+  .prob-grid {
+    display: grid; grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
+    gap: 16px; margin-top: 52px;
+  }
+  .prob-card {
+    background: var(--card); border: 1.5px solid var(--bdr);
+    border-radius: var(--rlg); padding: 32px 26px;
+    transition: background var(--tr), border-color .3s, transform .3s;
+  }
+  .prob-card:hover { border-color: var(--coral); transform: translateY(-4px); }
+  .prob-num {
+    font-family: var(--hand); font-size: 42px; font-weight: 700;
+    color: var(--coral); display: block; line-height: 1; margin-bottom: 12px;
+  }
+  .prob-card h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; transition: color var(--tr); }
+  .prob-card p  { font-size: 13px; color: var(--text2); line-height: 1.65; transition: color var(--tr); }
+
+  /* ============================================================
+     CALCULATORS
+  ============================================================ */
+  .calcs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 52px; }
+  .cp {
+    background: var(--card); border: 1.5px solid var(--bdr);
+    border-radius: var(--rlg); padding: 40px 36px;
+    position: relative; overflow: hidden;
+    transition: background var(--tr), border-color var(--tr);
+  }
+  .cp::after {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px;
+  }
+  .cp:nth-child(1)::after { background: var(--brand); }
+  .cp:nth-child(2)::after { background: var(--green); }
+  .cp-icon { font-size: 32px; margin-bottom: 10px; display: block; }
+  .cp-title { font-size: 20px; font-weight: 800; letter-spacing: -.03em; color: var(--text); margin-bottom: 5px; transition: color var(--tr); }
+  .cp-sub   { font-size: 13px; color: var(--text2); margin-bottom: 28px; transition: color var(--tr); }
+
+  /* Sliders */
+  .sl { margin-bottom: 20px; }
+  .sl label { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--text2); margin-bottom: 8px; transition: color var(--tr); }
+  .sl label em { font-style: normal; color: var(--text); font-weight: 800; font-size: 14px; }
+  input[type=range] {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 4px; border-radius: 4px;
+    background: var(--bdr); cursor: pointer; outline: none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--brand); border: 3px solid var(--text);
+    box-shadow: 0 2px 10px rgba(255,198,33,.5);
+    cursor: pointer; transition: box-shadow .2s;
+  }
+  input[type=range]::-webkit-slider-thumb:hover { box-shadow: 0 2px 18px rgba(255,198,33,.8); }
+  input[type=range]::-moz-range-thumb {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--brand); border: 3px solid var(--text); cursor: pointer;
+  }
+
+  /* Number inputs */
+  .ni { margin-bottom: 16px; }
+  .ni label { display: block; font-size: 12px; font-weight: 600; color: var(--text2); margin-bottom: 6px; transition: color var(--tr); }
+  .ni input { -moz-appearance: textfield; appearance: textfield; }
+  .ni input::-webkit-inner-spin-button { display: none; }
+
+  /* Calc result */
+  .cr {
+    background: var(--text); border-radius: var(--r);
+    padding: 24px 28px; text-align: center; margin-top: 24px;
+    transition: background var(--tr);
+  }
+  .cr-val  { font-size: clamp(44px,5vw,60px); font-weight: 900; letter-spacing: -.06em; line-height: 1; color: var(--brand); }
+  .cr-unit { font-size: 13px; color: rgba(255,251,234,.7); margin-top: 4px; }
+  .cr-band { font-size: 14px; font-weight: 700; color: var(--bg); margin-top: 10px; }
+  .cr-tip  { font-size: 12px; color: rgba(255,251,234,.62); margin-top: 6px; line-height: 1.55; }
+  .cr-cta  { display: inline-block; margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--brand); text-decoration: none; }
+  .cr-cta::after { content: ' →'; }
+  .cr-cta:hover { opacity: .78; }
+
+  /* ============================================================
+     SERVICES
+  ============================================================ */
+  .svc-stack { display: flex; flex-direction: column; gap: 20px; margin-top: 52px; }
+  .svc-card {
+    background: var(--card); border: 1.5px solid var(--bdr);
+    border-radius: var(--rxl); overflow: hidden;
+    display: grid; grid-template-columns: 260px 1fr;
+    box-shadow: var(--shadow);
+    transition: background var(--tr), border-color var(--tr), box-shadow .3s, transform .3s;
+  }
+  .svc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+  .svc-panel {
+    display: flex; flex-direction: column;
+    align-items: flex-start; justify-content: space-between;
+    padding: 44px 36px;
+  }
+  .svc-panel-1 { background: linear-gradient(145deg,#FFE066,#FFC621); }
+  .svc-panel-2 { background: linear-gradient(145deg,#54BBFF,#2B90FF); }
+  .svc-panel-3 { background: linear-gradient(145deg,#C3B1FF,#7B4EA8); }
+  .svc-panel-num {
+    font-size: clamp(72px,10vw,120px); font-weight: 900;
+    letter-spacing: -.06em; line-height: 1;
+    color: rgba(255,255,255,.35);
+  }
+  .svc-panel-1 .svc-panel-num { color: rgba(26,26,46,.15); }
+  .svc-panel-badge {
+    font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    background: rgba(255,255,255,.3); color: #fff;
+    padding: 6px 14px; border-radius: var(--rmd);
+  }
+  .svc-panel-1 .svc-panel-badge { color: var(--text); background: rgba(26,26,46,.12); }
+  .svc-panel-hw {
+    font-family: var(--hand); font-size: 27px; font-weight: 700;
+    color: rgba(255,255,255,.7); margin-top: 8px;
+    transform: rotate(-1.5deg); display: block;
+  }
+  .svc-panel-1 .svc-panel-hw { color: rgba(26,26,46,.45); }
+  .svc-body { padding: 44px 48px; display: flex; flex-direction: column; justify-content: center; }
+  .svc-num-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; transition: color var(--tr); }
+  .svc-name { font-size: clamp(22px,3vw,34px); font-weight: 800; letter-spacing: -.04em; line-height: 1.08; color: var(--text); margin-bottom: 12px; transition: color var(--tr); }
+  .svc-desc { font-size: 15px; color: var(--text2); line-height: 1.7; margin-bottom: 22px; transition: color var(--tr); }
+  .svc-list { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; }
+  .svc-list li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; color: var(--text2); line-height: 1.5; transition: color var(--tr); }
+  .svc-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--coral); flex-shrink: 0; margin-top: 7px; }
+
+  /* ============================================================
+     CASE STUDIES
+  ============================================================ */
+  .cases-g {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 18px; margin-top: 52px;
+  }
+  .case-c {
+    background: var(--card); border: 1.5px solid var(--bdr);
+    border-radius: var(--rlg); overflow: hidden;
+    transition: background var(--tr), border-color var(--tr), box-shadow .3s, transform .3s;
+  }
+  .case-c:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+  .case-img {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg,#ffe4a8,#ffd066);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: var(--text3); letter-spacing: .08em; text-transform: uppercase;
+  }
+  .case-body { padding: 28px 24px; }
+  .case-cl { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--coral); margin-bottom: 7px; }
+  .case-ti { font-size: 18px; font-weight: 700; letter-spacing: -.02em; color: var(--text); margin-bottom: 8px; transition: color var(--tr); }
+  .case-de { font-size: 13px; color: var(--text2); line-height: 1.65; transition: color var(--tr); }
+
+  /* ============================================================
+     HOW IT WORKS
+  ============================================================ */
+  .how-g {
+    display: grid; grid-template-columns: repeat(5,1fr);
+    gap: 14px; margin-top: 52px;
+  }
+  .how-step {
+    background: var(--card); border: 1.5px solid var(--bdr);
+    border-radius: var(--rlg); padding: 32px 22px; text-align: center;
+    transition: background var(--tr), border-color .3s, transform .3s;
+  }
+  .how-step:hover { border-color: var(--blue); transform: translateY(-4px); }
+  .how-n {
+    font-family: var(--hand); font-size: 52px; font-weight: 700;
+    color: var(--brand); line-height: 1; margin-bottom: 12px; display: block;
+  }
+  .how-step h3 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 7px; transition: color var(--tr); }
+  .how-step p  { font-size: 12px; color: var(--text2); line-height: 1.65; transition: color var(--tr); }
+
+  /* ============================================================
+     FIT
+  ============================================================ */
+  .fit-g { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 52px; }
+  .fit-col { border-radius: var(--rlg); padding: 44px 38px; }
+  .fit-col.yes { background: var(--brand); }
+  .fit-col.no  { background: var(--text); }
+  .fit-col h3  { font-size: 22px; font-weight: 800; letter-spacing: -.03em; margin-bottom: 28px; color: var(--text); }
+  .fit-col.no h3 { color: var(--bg); }
+  .fit-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+  .fit-i { display: flex; gap: 12px; align-items: flex-start; }
+  .fi-ico { font-size: 17px; flex-shrink: 0; }
+  .fit-i strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 3px; color: var(--text); }
+  .fit-col.no .fit-i strong { color: var(--bg); }
+  .fit-i span   { font-size: 13px; line-height: 1.5; color: rgba(26,26,46,.7); }
+  .fit-col.no .fit-i span { color: rgba(255,251,234,.68); }
+
+  /* ============================================================
+     SPRINT OFFER
+  ============================================================ */
+  .sprint-box {
+    background: var(--card); border: 2px solid var(--brand);
+    border-radius: var(--rxl); padding: 64px 56px;
+    text-align: center; box-shadow: 0 8px 48px rgba(255,198,33,.2);
+    transition: background var(--tr);
+  }
+  .sprint-chip {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    background: var(--brand); color: var(--text);
+    padding: 6px 18px; border-radius: var(--rmd); margin-bottom: 28px;
+  }
+  .sprint-pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 28px 0 36px; }
+  .s-pill {
+    font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: var(--r);
+    background: var(--bg); border: 1.5px solid var(--bdr); color: var(--text2);
+    transition: background var(--tr), border-color var(--tr), color var(--tr);
+  }
+
+  /* ============================================================
+     WHY US
+  ============================================================ */
+  .why-g { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 52px; }
+  .why-c {
+    background: var(--card); border: 1.5px solid var(--bdr);
+    border-radius: var(--rlg); padding: 36px 32px;
+    transition: background var(--tr), border-color var(--tr), transform .3s;
+  }
+  .why-c:hover { transform: translateY(-4px); }
+  .why-c:nth-child(1) { border-left: 4px solid var(--coral);  }
+  .why-c:nth-child(2) { border-left: 4px solid var(--blue);   }
+  .why-c:nth-child(3) { border-left: 4px solid var(--green);  }
+  .why-c:nth-child(4) { border-left: 4px solid var(--purple); }
+  .why-ico { font-size: 28px; margin-bottom: 14px; display: block; }
+  .why-c h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 8px; transition: color var(--tr); }
+  .why-c p  { font-size: 14px; color: var(--text2); line-height: 1.65; transition: color var(--tr); }
+
+  /* ============================================================
+     FAQ
+  ============================================================ */
+  .faq-l { max-width: 760px; margin: 52px auto 0; }
+  .faq-i { border-bottom: 1.5px solid var(--bdr); }
+  .faq-btn {
+    width: 100%; background: none; border: none; padding: 24px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; font-family: var(--body); font-size: 17px; font-weight: 600;
+    color: var(--text); gap: 16px; text-align: left; transition: color .2s;
+  }
+  .faq-btn:hover { color: var(--coral); }
+  .faq-ic { font-size: 22px; color: var(--text3); flex-shrink: 0; transition: transform .35s, color .35s; }
+  .faq-i.open .faq-ic { transform: rotate(45deg); color: var(--coral); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height .45s ease, padding .3s, color var(--tr);
+    font-size: 15px; color: var(--text2); line-height: 1.75;
+  }
+  .faq-i.open .faq-a { max-height: 320px; padding-bottom: 24px; }
+
+  /* ============================================================
+     APPLY
+  ============================================================ */
+  .apply-g { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 52px; }
+  .ci { display: flex; gap: 14px; margin-bottom: 18px; align-items: flex-start; }
+  .ci-ico {
+    width: 38px; height: 38px; flex-shrink: 0; border-radius: var(--rmd);
+    background: var(--brand); display: flex; align-items: center; justify-content: center; font-size: 16px;
+  }
+  .ci-t strong { display: block; font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; transition: color var(--tr); }
+  .ci-t span   { font-size: 13px; color: var(--text2); transition: color var(--tr); }
+  .ci-t a      { color: inherit; text-decoration: none; }
+  .wa-box {
+    margin-top: 32px; padding: 28px 32px;
+    background: var(--card); border: 1.5px solid var(--bdr);
+    border-radius: var(--rlg); transition: background var(--tr), border-color var(--tr);
+  }
+  .wa-box p { font-size: 14px; color: var(--text2); line-height: 1.6; margin-bottom: 16px; transition: color var(--tr); }
+  .form-wrap {
+    background: var(--card); border: 1.5px solid var(--bdr);
+    border-radius: var(--rlg); overflow: hidden; min-height: 580px;
+    transition: background var(--tr), border-color var(--tr);
+  }
+  .form-wrap iframe { width: 100%; border: none; min-height: 580px; display: block; }
+  .form-placeholder {
+    display: flex; align-items: center; justify-content: center;
+    height: 580px; color: var(--text3); font-size: 14px;
+    text-align: center; padding: 32px; flex-direction: column; gap: 12px;
+  }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  footer {
+    background: var(--text); padding: 64px 24px 36px;
+    transition: background var(--tr);
+  }
+  .foot-g {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px; padding-bottom: 44px;
+    border-bottom: 1px solid rgba(255,251,234,.1);
+    max-width: 1060px; margin: 0 auto;
+  }
+  .fl {
+    font-size: 18px; font-weight: 900; letter-spacing: -.03em;
+    text-decoration: none; display: flex; align-items: center; margin-bottom: 12px;
+    line-height: 0;
+  }
+  .fl img { height: 42px; width: auto; }
+  .fl span { color: #fff; } /* fallback text logo */
+  .fl b { color: var(--brand); background: rgba(255,255,255,.1); padding: 2px 8px; border-radius: 7px; }
+  .ft { font-size: 13px; color: rgba(255,251,234,.5); line-height: 1.65; max-width: 220px; }
+  .fc h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,251,234,.5); margin-bottom: 18px; }
+  .fc ul { list-style: none; } .fc li { margin-bottom: 11px; }
+  .fc a  { font-size: 13px; color: rgba(255,251,234,.55); text-decoration: none; transition: color .2s; }
+  .fc a:hover { color: var(--brand); }
+  .foot-b {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 28px; flex-wrap: wrap; gap: 12px;
+    max-width: 1060px; margin: 0 auto;
+  }
+  .foot-b p { font-size: 12px; color: rgba(255,251,234,.35); }
+  .foot-lnks { display: flex; gap: 20px; }
+  .foot-lnks a { font-size: 12px; color: rgba(255,251,234,.35); text-decoration: none; }
+
+  body.dark footer {
+    background: var(--card);
+    border-bottom: 1px solid var(--bdr);
+  }
+  body.dark .fl span { color: var(--text); }
+  body.dark .fl b { color: var(--text); background: rgba(26,26,46,.1); }
+  body.dark .ft { color: var(--text2); }
+  body.dark .fc h4 { color: var(--text3); }
+  body.dark .fc a { color: var(--text2); }
+  body.dark .foot-b p { color: var(--text3); }
+  body.dark .foot-lnks a { color: var(--text3); }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 900px) {
+    .svc-card { grid-template-columns: 1fr; }
+    .svc-panel { flex-direction: row; align-items: center; justify-content: space-between; padding: 28px 32px; }
+    .svc-panel-num { font-size: 64px; }
+    .apply-g { grid-template-columns: 1fr; gap: 48px; }
+    .foot-g  { grid-template-columns: 1fr 1fr; }
+    .foot-g > div:first-child { grid-column: 1/-1; }
+  }
+  @media (max-width: 768px) {
+    .stats-g { grid-template-columns: 1fr 1fr; }
+    .stat:nth-child(2) { border-right: 0; }
+    .stat:nth-child(3) { border-right: 1.5px solid var(--bdr); }
+    .calcs-row { grid-template-columns: 1fr; }
+    .cases-g   { grid-template-columns: 1fr; }
+    .fit-g     { grid-template-columns: 1fr; }
+    .how-g     { grid-template-columns: 1fr 1fr; }
+    .why-g     { grid-template-columns: 1fr; }
+    .qf-fields { grid-template-columns: 1fr; }
+    nav { padding: 0 16px; }
+    .sec { padding: 72px 20px; }
+    .qf-card    { padding: 32px 24px; }
+    .sprint-box { padding: 44px 28px; }
+    .svc-body   { padding: 36px 28px; }
+    .fab span  { display: none; }
+    .fab { padding: 14px; border-radius: var(--r); }
+    .nav-tel { display: none; }
+  }
+  @media (max-width: 520px) {
+    .how-g { grid-template-columns: 1fr; }
+    .foot-g { grid-template-columns: 1fr; }
+    .foot-b { flex-direction: column; text-align: center; }
+  }
+
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     FAB (WhatsApp floating button)
+============================================================ -->
+<a class="fab" href="https://wa.me/447723445800" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+  <span>WhatsApp Us</span>
+</a>
+
+<!-- ============================================================
+     NAV
+     To use your real logo image, replace the <a class="logo"> content with:
+     <img src="YOUR_LOGO_URL_HERE" alt="BOXmedia">
+============================================================ -->
+<nav>
+  <a href="#" class="logo" aria-label="BOXmedia home">
+  <img src="https://assets.cdn.filesafe.space/P5tuBjGyGhMkOkmiMlSF/media/69e24db950b9a3263a9899a5.png" alt="BOXmedia logo" style="height:38px;width:auto;">
+</a>
+  <a class="nav-tel" href="tel:+443448877007" aria-label="Call BOXmedia">+44 344 88 77 007</a>
+  <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <span id="theme-icon" aria-hidden="true">🌙</span>
+  </button>
+  <button class="theme-btn" >
+    <a href="mailto:rashpal@boxmedia.tv" style="text-decoration: none;"  id="theme-icon" aria-hidden="true">✉️</a>
+  </button>
+  <a class="nav-cta" href="#apply">Contact Us</a>
+</nav>
+
+<!-- ============================================================
+     HERO
+     VIDEO NOTE: YouTube autoplay requires HTTPS.
+     Will NOT work when opened from file:///
+     Upload to your CRM funnel or Netlify first, then test.
+============================================================ -->
+<section id="hero">
+  <div class="wrap">
+    <!-- <div class="hero-eyebrow">🏆 Award-Winning &middot; Leeds, UK &middot; Founder-Led B2B</div> -->
+    <h1 class="hero-h1">
+      Your business is better<br>than the way it currently
+      <br>
+      <span class="squig-wrap">
+        looks online.
+        <svg class="sq" viewBox="0 0 240 12" preserveAspectRatio="none" fill="none" aria-hidden="true">
+          <path class="sq-path" id="sq1"
+            d="M2,6 Q16,1 30,6 Q44,11 58,6 Q72,1 86,6 Q100,11 114,6 Q128,1 142,6 Q156,11 170,6 Q184,1 198,6 Q212,11 226,6 Q238,1 240,5"
+            stroke="#FF5B47" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </h1>
+    <div class="hero-hand">
+      <svg width="44" height="34" viewBox="0 0 44 34" fill="none" aria-hidden="true">
+        <path d="M4 17 Q18 10 32 17" stroke="var(--coral)" stroke-width="2.8" stroke-linecap="round"/>
+        <path d="M24 9 L32 17 L24 25" stroke="var(--coral)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="hw hw-lg" style="transform:rotate(-2deg);display:inline-block;">this is where we help</span>
+    </div>
+    <p class="hero-sub">We help founder-led B2B service businesses build the visibility, authority, and trust their work deserves.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn btn-dark" href="#apply">Apply to Work With Us</a>
+      <a class="btn btn-outline" href="https://wa.me/447723445800" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        Quick question?
+      </a>
+    </div>
+    <div class="hero-video" data-r="scale">
+      <wistia-player media-id="4mrrn36pnr" aspect="1.7777777777777777"></wistia-player>
+    </div>
+    <div class="video-caption">
+      <svg width="48" height="36" viewBox="0 0 48 36" fill="none" aria-hidden="true">
+        <path d="M44,32 Q28,26 18,18 Q10,10 8,4" stroke="var(--green)" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <path d="M4,8 L8,4 L14,8" stroke="var(--green)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span class="hw hw-md" style="color:var(--green);">watch our showreel ✨</span>
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,0.7);text-align:center;margin-top:6px;">
+      From &pound;3k&ndash;&pound;8k/month &middot; Founder-led B2B firms only &middot; Not for vanity metrics
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUICK FORM (under hero, above the fold)
+============================================================ -->
+<section id="quick-form" aria-label="Quick enquiry form">
+  <div class="qf-card" data-r="up">
+    <div class="qf-header">
+      <div>
+        <h3>Tell us about your project</h3>
+        <p style="font-size:14px;color:var(--text2);margin-top:6px;transition:color var(--tr);">We&rsquo;ll come back to you within 24 hours.</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true">
+          <path d="M32,4 Q20,8 12,18 Q8,22 4,26" stroke="var(--coral)" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <path d="M4,20 L4,26 L10,24" stroke="var(--coral)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="hw hw-md" style="transform:rotate(-2deg);display:inline-block;">takes 60 seconds!</span>
+      </div>
+    </div>
+    <form id="qf" onsubmit="submitQF(event)" novalidate>
+      <div class="qf-fields">
+        <div>
+          <label for="qf-name" style="display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:6px;transition:color var(--tr);">
+            Full name <span aria-hidden="true" style="color:var(--coral);">*</span>
+          </label>
+          <input class="field" id="qf-name" type="text" placeholder="Your name" required autocomplete="name">
+        </div>
+        <div>
+          <label for="qf-email" style="display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:6px;transition:color var(--tr);">
+            Work email <span aria-hidden="true" style="color:var(--coral);">*</span>
+          </label>
+          <input class="field" id="qf-email" type="email" placeholder="you@company.com" required autocomplete="email">
+        </div>
+        <div>
+          <label for="qf-company" style="display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:6px;transition:color var(--tr);">Company</label>
+          <input class="field" id="qf-company" type="text" placeholder="Company name" autocomplete="organization">
+        </div>
+        <div>
+          <label for="qf-service" style="display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:6px;transition:color var(--tr);">Service interested in</label>
+          <select class="field" id="qf-service">
+            <option value="">Choose a service&hellip;</option>
+            <option>30-Day Visibility Sprint</option>
+            <option>Founder Authority Engine</option>
+            <option>Content-to-Clients System</option>
+          </select>
+        </div>
+        <textarea class="field" id="qf-msg" placeholder="Briefly tell us your biggest visibility challenge&hellip;" rows="3"></textarea>
+      </div>
+      <div class="qf-footer">
+        <button class="btn btn-coral" type="submit">Send Enquiry &rarr;</button>
+        <!-- <a class="btn btn-wa" href="https://wa.me/447723445800" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          WhatsApp instead
+        </a> -->
+        <p id="qf-resp" role="alert" style="font-size:14px;font-weight:600;color:var(--green);display:none;"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST STRIP
+============================================================ -->
+<div id="trust">
+  <div class="trust-row">
+    <span class="trust-lbl">Trusted by</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">VanGuardian</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">Crown Care</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">Nishkam</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">The Florian Group</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">Tablewise Italia</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">BBC Radio</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">First</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">Jungle Sqaud</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">PPG</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">Ducan Lewis Solicitors</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">Royal Armouries</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">Chatsworth House Dental</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="trust-name">SikhNet</span>
+    <span class="trust-sep" aria-hidden="true"></span>
+    <span class="hw hw-sm" style="color:var(--coral);">and many more!</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     STATS
+============================================================ -->
+<section id="stats" aria-label="Key stats">
+  <div class="stats-g">
+    <div class="stat">
+      <span class="stat-hand hw hw-sm" style="color:var(--coral);">wow!</span>
+      <div class="stat-n" data-count="30">30</div>
+      <div class="stat-l">Days to a sharper presence</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n" data-count="3">3</div>
+      <div class="stat-l">Routes: Visibility, Authority, Demand</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n">B2B</div>
+      <div class="stat-l">Founder-led firms only</div>
+    </div>
+    <div class="stat">
+      <span class="stat-hand hw hw-sm" style="color:var(--green);">fair!</span>
+      <div class="stat-n">&pound;3k<span class="stat-accent">+</span></div>
+      <div class="stat-l">Starting engagement</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROBLEM
+============================================================ -->
+<section id="problem" class="sec">
+  <div class="wrap">
+    <div class="tc" data-r="up">
+      <span class="tag">The Problem</span>
+      <h2 class="sh">If your online presence feels weaker<br>than the actual business &mdash; that is costing you.</h2>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;">
+        <svg width="38" height="28" viewBox="0 0 38 28" fill="none" aria-hidden="true">
+          <path d="M4,4 Q14,4 22,14 Q28,20 34,22" stroke="var(--coral)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M28,20 L34,22 L30,28" stroke="var(--coral)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="hw hw-md" style="transform:rotate(-1.5deg);display:inline-block;">sound familiar?</span>
+      </div>
+    </div>
+    <div class="prob-grid">
+      <div class="prob-card" data-r="up"><span class="prob-num">01</span><h3>Too referral-dependent</h3><p>No real visibility engine. Growth is locked to who you know.</p></div>
+      <div class="prob-card" data-r="up" style="transition-delay:.08s"><span class="prob-num">02</span><h3>Weak authority</h3><p>The market doesn&rsquo;t see the expertise behind the business.</p></div>
+      <div class="prob-card" data-r="up" style="transition-delay:.16s"><span class="prob-num">03</span><h3>Founder too invisible</h3><p>Buyers need to trust the person. They can&rsquo;t find them online.</p></div>
+      <div class="prob-card" data-r="up" style="transition-delay:.24s"><span class="prob-num">04</span><h3>Content with no movement</h3><p>Posting but not converting. Activity without commercial result.</p></div>
+      <div class="prob-card" data-r="up" style="transition-delay:.32s"><span class="prob-num">05</span><h3>Poor conversion path</h3><p>Website, messaging, proof, and CTA not working together.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CALCULATORS
+============================================================ -->
+<section id="calcs" class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="tc" data-r="up">
+      <span class="tag">Quick Tools</span>
+      <h2 class="sh">Quantify the gap before you apply.</h2>
+      <span class="hw hw-md" style="color:var(--blue);transform:rotate(-1deg);display:inline-block;margin-top:6px;">use these now &darr;</span>
+    </div>
+    <div class="calcs-row">
+      <!-- Authority Score -->
+      <div class="cp">
+        <span class="cp-icon" aria-hidden="true">🎯</span>
+        <div class="cp-title">Authority Score</div>
+        <div class="cp-sub">Rate yourself across four key dimensions.</div>
+        <div class="sl"><label for="v1">Founder Visibility <em id="v1v">5</em>/10</label><input type="range" min="1" max="10" value="5" id="v1" aria-label="Founder visibility" oninput="v1v.textContent=this.value;calcAuth()"></div>
+        <div class="sl"><label for="v2">Trust &amp; Proof <em id="v2v">5</em>/10</label><input type="range" min="1" max="10" value="5" id="v2" aria-label="Trust and proof" oninput="v2v.textContent=this.value;calcAuth()"></div>
+        <div class="sl"><label for="v3">Message Clarity <em id="v3v">5</em>/10</label><input type="range" min="1" max="10" value="5" id="v3" aria-label="Message clarity" oninput="v3v.textContent=this.value;calcAuth()"></div>
+        <div class="sl"><label for="v4">Consistency <em id="v4v">5</em>/10</label><input type="range" min="1" max="10" value="5" id="v4" aria-label="Consistency" oninput="v4v.textContent=this.value;calcAuth()"></div>
+        <div class="cr" aria-live="polite">
+          <div class="cr-val" id="auth-val">50</div>
+          <div class="cr-unit">/ 100</div>
+          <div class="cr-band" id="auth-band">Inconsistent authority foundation.</div>
+          <div class="cr-tip"  id="auth-tip">A focused sprint could sharpen your presence significantly.</div>
+        </div>
+        <a class="cr-cta" href="#apply">Apply to work with us</a>
+      </div>
+      <!-- Lead Leakage -->
+      <div class="cp">
+        <span class="cp-icon" aria-hidden="true">💰</span>
+        <div class="cp-title">Lead Leakage</div>
+        <div class="cp-sub">Estimate monthly revenue slipping through the cracks.</div>
+        <div class="ni"><label for="l1">Monthly visitors</label><input class="field" type="number" id="l1" value="1000" min="0" oninput="calcLeak()"></div>
+        <div class="ni"><label for="l2">Enquiry rate (%)</label><input class="field" type="number" id="l2" value="2" step="0.1" oninput="calcLeak()"></div>
+        <div class="ni"><label for="l3">Close rate (%)</label><input class="field" type="number" id="l3" value="20" oninput="calcLeak()"></div>
+        <div class="ni"><label for="l4">Avg client value (&pound;)</label><input class="field" type="number" id="l4" value="5000" oninput="calcLeak()"></div>
+        <div class="cr" aria-live="polite">
+          <div class="cr-val" id="leak-val">&pound;2,000</div>
+          <div class="cr-unit">/ month estimated revenue</div>
+          <div class="cr-band" id="leak-band">Better trust could unlock meaningful lift.</div>
+          <div class="cr-tip"  id="leak-tip">Even small improvements create significant commercial impact.</div>
+        </div>
+        <a class="cr-cta" href="#apply">See what&rsquo;s possible</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section id="services" class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="tc" data-r="up">
+      <span class="tag">What We Do</span>
+      <h2 class="sh">Three routes to fix the gap between<br>how good your business is and how the market sees it.</h2>
+    </div>
+    <div class="svc-stack">
+      <div class="svc-card" data-r="up">
+        <div class="svc-panel svc-panel-1">
+          <div class="svc-panel-num" aria-hidden="true">01</div>
+          <div>
+            <div class="svc-panel-badge">Start Here</div>
+            <span class="svc-panel-hw">fastest route &rarr;</span>
+          </div>
+        </div>
+        <div class="svc-body">
+          <span class="svc-num-label">Service 01</span>
+          <h3 class="svc-name">30-Day Visibility Sprint</h3>
+          <p class="svc-desc">The fastest route to looking sharper, more credible, and more commercially ready &mdash; in just 30 days.</p>
+          <ul class="svc-list">
+            <li>Visibility &amp; positioning review</li>
+            <li>Messaging refinement</li>
+            <li>Trust signal improvements</li>
+            <li>CTA &amp; conversion alignment</li>
+          </ul>
+          <a class="btn btn-dark" href="#apply">Apply for the Sprint</a>
+        </div>
+      </div>
+      <div class="svc-card" data-r="up">
+        <div class="svc-panel svc-panel-2">
+          <div class="svc-panel-num" aria-hidden="true">02</div>
+          <div>
+            <div class="svc-panel-badge">Authority</div>
+            <span class="svc-panel-hw">for trusted founders &rarr;</span>
+          </div>
+        </div>
+        <div class="svc-body">
+          <span class="svc-num-label">Service 02</span>
+          <h3 class="svc-name">Founder Authority Engine</h3>
+          <p class="svc-desc">Turn founder expertise into authority-building content that makes the market trust you faster.</p>
+          <ul class="svc-list">
+            <li>Founder-led content system</li>
+            <li>Authority positioning</li>
+            <li>Repurposed content assets</li>
+            <li>Visibility without burnout</li>
+          </ul>
+          <a class="btn btn-blue" href="#apply">Apply</a>
+        </div>
+      </div>
+      <div class="svc-card" data-r="up">
+        <div class="svc-panel svc-panel-3">
+          <div class="svc-panel-num" aria-hidden="true">03</div>
+          <div>
+            <div class="svc-panel-badge">Demand</div>
+            <span class="svc-panel-hw">content that converts &rarr;</span>
+          </div>
+        </div>
+        <div class="svc-body">
+          <span class="svc-num-label">Service 03</span>
+          <h3 class="svc-name">Content-to-Clients System</h3>
+          <p class="svc-desc">Connect content, proof, messaging, and conversion into a joined-up demand pathway tied to actual opportunity.</p>
+          <ul class="svc-list">
+            <li>Content &amp; conversion path</li>
+            <li>Proof-led messaging</li>
+            <li>CTA alignment</li>
+            <li>Inbound opportunity support</li>
+          </ul>
+          <a class="btn" style="background:var(--purple);color:#fff;" href="#apply">Apply</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CASE STUDIES
+============================================================ -->
+<section id="cases" class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="tc" data-r="up">
+      <span class="tag">Case Studies</span>
+      <h2 class="sh">Strong businesses should look strong online.</h2>
+      <span class="hw hw-md" style="color:var(--green);transform:rotate(1deg);display:inline-block;margin-top:8px;">real results, real businesses 👇</span>
+    </div>
+    <div class="cases-g">
+      <div class="case-c" data-r="up">
+        <!-- <div class="case-img">Replace with client image</div> -->
+        <!-- Replace with your Wistia embed code -->
+        <div class="case-img">Replace with video embed</div>
+        <div class="case-body">
+          <div class="case-cl">Vanguardian</div>
+          <h3 class="case-ti">Sharper commercial presence</h3>
+          <p class="case-de">Stronger positioning and trust presentation &mdash; a more credible, commercially aligned online presence.</p>
+        </div>
+      </div>
+      <div class="case-c" data-r="up" style="transition-delay:.1s">
+        <div class="case-img">Replace with client image</div>
+        <div class="case-body">
+          <div class="case-cl">Tablewise Italia</div>
+          <h3 class="case-ti">Premium brand perception</h3>
+          <p class="case-de">Stronger visual storytelling &mdash; a premium feel that now matches the quality of the product.</p>
+        </div>
+      </div>
+      <div class="case-c" data-r="up" style="transition-delay:.2s">
+        <div class="case-img">Replace with client image</div>
+        <div class="case-body">
+          <div class="case-cl">Emmark UK</div>
+          <h3 class="case-ti">Clearer value communication</h3>
+          <p class="case-de">Stronger visibility and tighter messaging &mdash; a brand easier to understand and trust.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW IT WORKS
+============================================================ -->
+<section id="how" class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="tc" data-r="up">
+      <span class="tag">How It Works</span>
+      <h2 class="sh">Simple. Structured. Built to move fast.</h2>
+    </div>
+    <div class="how-g">
+      <div class="how-step" data-r="up"><span class="how-n">1</span><h3>Apply</h3><p>Tell us your goals and visibility gaps.</p></div>
+      <div class="how-step" data-r="up" style="transition-delay:.08s"><span class="how-n">2</span><h3>We review</h3><p>Assess fit and the clearest route forward.</p></div>
+      <div class="how-step" data-r="up" style="transition-delay:.16s"><span class="how-n">3</span><h3>We recommend</h3><p>Sprint, Authority Engine, or Content-to-Clients.</p></div>
+      <div class="how-step" data-r="up" style="transition-delay:.24s"><span class="how-n">4</span><h3>Fast onboard</h3><p>Clear process. No vague next steps.</p></div>
+      <div class="how-step" data-r="up" style="transition-delay:.32s"><span class="how-n">5</span><h3>You look the part</h3><p>Authority, trust, and commercial clarity online.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FIT
+============================================================ -->
+<section id="fit" class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="tc" data-r="up">
+      <span class="tag">Fit</span>
+      <h2 class="sh">Who this is for &mdash; and who it&rsquo;s not.</h2>
+    </div>
+    <div class="fit-g">
+      <div class="fit-col yes" data-r="left">
+        <h3>&checkmark; &nbsp;Who this is for</h3>
+        <ul class="fit-list">
+          <li class="fit-i"><span class="fi-ico" aria-hidden="true">🏢</span><div><strong>Founder-led B2B service firms</strong><span>Consultants, recruiters, legal, advisory, agencies, SaaS, education.</span></div></li>
+          <li class="fit-i"><span class="fi-ico" aria-hidden="true">💪</span><div><strong>Strong business, weak online presence</strong><span>The work is better than the visibility around it.</span></div></li>
+          <li class="fit-i"><span class="fi-ico" aria-hidden="true">🎯</span><div><strong>Teams wanting strategic support</strong><span>Better authority without hiring in-house.</span></div></li>
+          <li class="fit-i"><span class="fi-ico" aria-hidden="true">👁️</span><div><strong>Founders open to visibility</strong><span>Trust is part of the sale. Leadership shows up.</span></div></li>
+        </ul>
+      </div>
+      <div class="fit-col no" data-r="right">
+        <h3>&times; &nbsp;Who this is not for</h3>
+        <ul class="fit-list">
+          <li class="fit-i"><span class="fi-ico" aria-hidden="true">🚫</span><div><strong>Cheap posting seekers</strong><span>Lowest-cost fulfilment isn&rsquo;t what we do.</span></div></li>
+          <li class="fit-i"><span class="fi-ico" aria-hidden="true">🚫</span><div><strong>Zero founder visibility</strong><span>If leadership won&rsquo;t show up at all, fit will be weak.</span></div></li>
+          <li class="fit-i"><span class="fi-ico" aria-hidden="true">🚫</span><div><strong>No clear offer</strong><span>Visibility alone won&rsquo;t fix an unclear business.</span></div></li>
+          <li class="fit-i"><span class="fi-ico" aria-hidden="true">🚫</span><div><strong>Just browsing</strong><span>This is for teams with genuine intent to improve.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SPRINT OFFER
+============================================================ -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap" data-r="up">
+    <div class="sprint-box">
+      <div class="sprint-chip">Lead Offer</div>
+      <h2 class="sh" style="max-width:640px;margin:0 auto 12px;">The 30-Day Visibility Sprint</h2>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;">
+        <svg width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true">
+          <path d="M4,24 Q16,16 28,8 Q32,6 34,4" stroke="var(--coral)" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <path d="M30,4 L34,4 L32,8" stroke="var(--coral)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="hw hw-lg" style="transform:rotate(-1.5deg);display:inline-block;">the clearest first step!</span>
+      </div>
+      <p class="sd" style="margin:0 auto 28px;">The fastest route to making your business look more credible, consistent, and commercially ready.</p>
+      <div class="sprint-pills">
+        <span class="s-pill">&checkmark; Visibility &amp; positioning review</span>
+        <span class="s-pill">&checkmark; Messaging refinement</span>
+        <span class="s-pill">&checkmark; Trust signal improvements</span>
+        <span class="s-pill">&checkmark; Founder or brand clean-up</span>
+        <span class="s-pill">&checkmark; CTA &amp; conversion alignment</span>
+      </div>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn-dark" href="#apply">Apply for the Sprint</a>
+        <a class="btn btn-wa" href="https://wa.me/447723445800" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          WhatsApp a question
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY US
+============================================================ -->
+<section id="why" class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="tc" data-r="up">
+      <span class="tag">Why Us</span>
+      <h2 class="sh">Most agencies sell deliverables.<br>We build systems.</h2>
+    </div>
+    <div class="why-g">
+      <div class="why-c" data-r="up"><span class="why-ico" aria-hidden="true">🎯</span><h3>Clarity before volume</h3><p>We start with what&rsquo;s actually holding the business back, not just output.</p></div>
+      <div class="why-c" data-r="up" style="transition-delay:.08s"><span class="why-ico" aria-hidden="true">🏆</span><h3>Authority before noise</h3><p>More credible, not just more active. Substance over surface.</p></div>
+      <div class="why-c" data-r="up" style="transition-delay:.16s"><span class="why-ico" aria-hidden="true">🤝</span><h3>Trust before tactics</h3><p>The market needs to believe you before it buys from you.</p></div>
+      <div class="why-c" data-r="up" style="transition-delay:.24s"><span class="why-ico" aria-hidden="true">⚙️</span><h3>Systems over output</h3><p>Content, proof, messaging, and conversion working together &mdash; not disconnected.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+============================================================ -->
+<section id="faq" class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="tc" data-r="up">
+      <span class="tag">FAQ</span>
+      <h2 class="sh">Got questions?<br>
+        <span class="hw hw-lg" style="display:block;color:var(--coral);margin-top:4px;">we&rsquo;ve got answers 👇</span>
+      </h2>
+    </div>
+    <div class="faq-l">
+      <div class="faq-i"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">What businesses are the best fit?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a">Founder-led B2B service firms &mdash; consultants, recruiters, legal, advisory, agencies, SaaS, and education businesses where the founder&rsquo;s credibility is central to the sale.</div></div>
+      <div class="faq-i"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">Do you only do social media?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a">No. We work across visibility, positioning, messaging, trust signals, and conversion alignment &mdash; the full picture of how your business shows up online.</div></div>
+      <div class="faq-i"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">Not ready for a long retainer?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a">The 30-Day Sprint is the natural starting point &mdash; fast, defined, and gives you clarity before committing to anything longer.</div></div>
+      <div class="faq-i"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">What does pricing look like?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a">Most engagements sit between &pound;3k and &pound;8k per month depending on the route. The Sprint is usually the clearest first step.</div></div>
+      <div class="faq-i"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">Do you work with everyone who applies?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a">No. We only move forward when the fit is genuinely right. If it&rsquo;s not, we say so early.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     APPLY (main CRM form)
+============================================================ -->
+<section id="apply" class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div data-r="up" style="margin-bottom:48px;">
+      <span class="tag">Apply</span>
+      <h2 class="sh">Apply to work with us</h2>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <svg width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true">
+          <path d="M32,4 Q20,8 12,18 Q8,22 4,26" stroke="var(--coral)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M4,20 L4,26 L10,24" stroke="var(--coral)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="hw hw-md" style="color:var(--coral);transform:rotate(-1deg);display:inline-block;">we reply within 24hrs!</span>
+      </div>
+    </div>
+    <div class="apply-g">
+      <div data-r="left">
+        <p class="sd" style="margin-bottom:28px;">If your business is strong but your online presence isn&rsquo;t yet doing it justice &mdash; tell us where you are and what you need.</p>
+        <div class="ci"><div class="ci-ico" aria-hidden="true">📍</div><div class="ci-t"><strong>Studio</strong><span>Unit B, Oaktree Business Park, Limewood Court, Leeds, LS14 1NF</span></div></div>
+        <div class="ci"><div class="ci-ico" aria-hidden="true">📞</div><div class="ci-t"><strong>Phone</strong><span><a href="tel:+443448877007">+44 344 88 77 007</a></span></div></div>
+        <div class="ci"><div class="ci-ico" aria-hidden="true">💬</div><div class="ci-t"><strong>Text / SMS</strong><span><a href="sms:+447723445800">+44 7723 445 800</a></span></div></div>
+        <div class="wa-box">
+          <p>Not ready to apply? Send a WhatsApp with your website and biggest visibility challenge.</p>
+          <a class="btn btn-wa" href="https://wa.me/447723445800" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+      <div data-r="right">
+        <div class="form-wrap">
+          <!--
+            ================================================
+            PASTE YOUR CRM FORM EMBED CODE HERE
+            Steps:
+            1. Go to Sites > Forms in your CRM
+            2. Open your form > click Integrate
+            3. Copy the iframe embed code
+            4. Paste it below, replacing this comment
+
+            It will look like:
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/XXXXXXXX"
+              style="width:100%;height:580px;border:none"
+            ></iframe>
+            ================================================
+          -->
+          <div class="form-placeholder">
+            <span style="font-size:32px;" aria-hidden="true">📋</span>
+            <span>Paste your CRM form embed code here</span>
+            <span style="font-size:12px;color:var(--text3);">Sites &rarr; Forms &rarr; Integrate &rarr; Copy iframe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+============================================================ -->
+<section style="padding:96px 24px;text-align:center;border-top:1.5px solid var(--bdr);">
+  <div class="wrap-sm" data-r="up">
+    <!-- <span class="hw hw-xl" style="display:block;margin-bottom:16px;transform:rotate(-1deg);">ready to look the part? &rarr;</span> -->
+    <h2 class="sh">Your business should look as strong online as it is in real life.</h2>
+    <p class="sd" style="margin:0 auto 40px;">The next step is simple.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <!-- <a class="btn btn-dark" href="#apply">Apply to Work With Us</a> -->
+      <a class="btn btn-brand" href="#apply">Start with the Sprint &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="foot-g">
+    <div>
+      <a class="fl" href="#" aria-label="BOXmedia home">
+        <!-- OPTION A: Image logo (recommended) -->
+        <img src="https://assets.cdn.filesafe.space/P5tuBjGyGhMkOkmiMlSF/media/69e24db950b9a3263a9899a5.png" alt="BOXmedia">
+      </a>
+      <p class="ft">Award-winning video &amp; visibility agency, Leeds UK. Helping founder-led B2B businesses look as strong online as they are in real life.</p>
+    </div>
+    <div class="fc"><h4>Services</h4><ul><li><a href="#services">30-Day Sprint</a></li><li><a href="#services">Founder Authority</a></li><li><a href="#services">Content-to-Clients</a></li></ul></div>
+    <div class="fc"><h4>Company</h4><ul><li><a href="#cases">Case Studies</a></li><li><a href="#how">How It Works</a></li><li><a href="https://boxmedia.tv" target="_blank" rel="noopener">Full Website</a></li></ul></div>
+    <div class="fc"><h4>Connect</h4><ul><li><a href="#apply">Apply Now</a></li><li><a href="https://wa.me/447723445800" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="sms:+447723445800">Text Us</a></li><li><a href="tel:+443448877007">+44 344 88 77 007</a></li></ul></div>
+  </div>
+  <div class="foot-b">
+    <p>&copy; 2026 BOXmedia Ltd. All rights reserved. Leeds, UK.</p>
+    <div class="foot-lnks"><a href="#">Privacy</a><a href="#">Terms</a></div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+'use strict';
+
+/* 1. DARK MODE */
+var themeBtn  = document.getElementById('theme-btn');
+var themeIcon = document.getElementById('theme-icon');
+
+function setTheme(dark) {
+  document.body.classList.toggle('dark', dark);
+  themeIcon.textContent = dark ? '☀️' : '🌙';
+  themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  try { localStorage.setItem('bm-theme', dark ? 'dark' : 'light'); } catch(e) {}
+}
+(function() {
+  var saved = null;
+  try { saved = localStorage.getItem('bm-theme'); } catch(e) {}
+  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  setTheme(saved === 'dark' || (!saved && prefersDark));
+})();
+themeBtn.addEventListener('click', function() {
+  setTheme(!document.body.classList.contains('dark'));
+});
+
+/* HERO BG FADE */
+window.addEventListener('scroll', function() {
+  const hero = document.getElementById('hero');
+  const scrollTop = window.pageYOffset;
+  const heroHeight = hero.offsetHeight;
+  const opacity = Math.max(0, 1 - scrollTop / heroHeight);
+  document.documentElement.style.setProperty('--hero-bg-opacity', opacity);
+});
+
+/* 2. SCROLL REVEAL */
+var io = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (!e.isIntersecting) return;
+    var el = e.target;
+    if (el.dataset.r)                         { el.classList.add('on');    io.unobserve(el); }
+    if (el.classList.contains('sq-path'))     { el.classList.add('drawn'); io.unobserve(el); }
+    if (el.classList.contains('stat'))        { animStat(el);              io.unobserve(el); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('[data-r], .sq-path, .stat').forEach(function(el) { io.observe(el); });
+
+/* Hero squiggle on load */
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var sq = document.getElementById('sq1');
+    if (sq) sq.classList.add('drawn');
+  }, 500);
+});
+
+/* 3. STAT COUNTER */
+function animStat(statEl) {
+  var numEl = statEl.querySelector('[data-count]');
+  if (!numEl) return;
+  var target = parseInt(numEl.dataset.count, 10);
+  var t0 = null, dur = 1200;
+  function step(ts) {
+    if (!t0) t0 = ts;
+    var p    = Math.min((ts - t0) / dur, 1);
+    var ease = 1 - Math.pow(1 - p, 3);
+    numEl.textContent = Math.round(ease * target);
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+/* 4. AUTHORITY CALCULATOR */
+function calcAuth() {
+  var score = Math.round(
+    ['v1','v2','v3','v4'].reduce(function(a, id) {
+      return a + (+document.getElementById(id).value);
+    }, 0) * 2.5
+  );
+  document.getElementById('auth-val').textContent = score;
+  var b, t;
+  if      (score >= 80) { b = 'Strong authority foundation.';    t = 'Well positioned — let’s sharpen and accelerate.'; }
+  else if (score >= 60) { b = 'Good base, clear gaps.';          t = 'A sprint could significantly sharpen your market presence.'; }
+  else if (score >= 40) { b = 'Inconsistent authority signals.'; t = 'Your visibility is likely costing you trust and deals.'; }
+  else                  { b = 'Significant authority gap.';      t = 'The gap between your business and your online presence is fixable.'; }
+  document.getElementById('auth-band').textContent = b;
+  document.getElementById('auth-tip').textContent  = t;
+}
+
+/* 5. LEAD LEAKAGE CALCULATOR */
+function calcLeak() {
+  var v    = +document.getElementById('l1').value || 0;
+  var er   = +document.getElementById('l2').value || 0;
+  var cr   = +document.getElementById('l3').value || 0;
+  var av   = +document.getElementById('l4').value || 0;
+  var rev  = Math.round(v * (er / 100) * (cr / 100) * av);
+  var imp  = Math.round(v * (Math.min(er * 1.5, 100) / 100) * (Math.min(cr * 1.35, 100) / 100) * av);
+  var lift = Math.max(0, imp - rev);
+  document.getElementById('leak-val').innerHTML    = '&pound;' + rev.toLocaleString();
+  document.getElementById('leak-band').textContent = lift > 0
+    ? '+£' + lift.toLocaleString() + '/mo potential with better trust & conversion'
+    : 'Conversion pathway looks well optimised.';
+}
+calcAuth();
+calcLeak();
+
+/* 6. FAQ ACCORDION */
+function toggleFaq(btn) {
+  var item = btn.closest('.faq-i');
+  var open = item.classList.contains('open');
+  document.querySelectorAll('.faq-i').forEach(function(i) {
+    i.classList.remove('open');
+    i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+  });
+  if (!open) {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
+
+/* 7. QUICK FORM */
+function submitQF(e) {
+  e.preventDefault();
+  var resp = document.getElementById('qf-resp');
+  resp.style.display  = 'block';
+  resp.textContent    = '✓ Sent! We’ll be in touch within 24 hours.';
+  e.target.reset();
+  setTimeout(function() { resp.style.display = 'none'; }, 5000);
+}
+</script>
+</body>
+</html>
